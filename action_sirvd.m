@@ -1,4 +1,4 @@
-function [s_n, i_n, r_n] = action_sirs(s, i, r, beta, gamma, alpha)
+function [s_n, i_n, r_n] = action_sirvd(s, i, r, beta, gamma, alpha)
 % Advance an SIR model one timestep
 %
 % Usage

@@ -1,4 +1,4 @@
-function [S, I, R, W] = simulate_sirs(s_0, i_0, r_0, beta, gamma, alpha, num_steps)
+function [S, I, R, W] = simulate_sirvd(s_0, i_0, r_0, beta, gamma, alpha, num_steps)
 % Simulate a SIR model
 %
 % Usage
