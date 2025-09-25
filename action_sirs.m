@@ -25,7 +25,7 @@ resuseptible = alpha * r;
 
 infected = min(infected, s);
 recovered = min(recovered, i);
-% resuseptible = min(resuseptible, recovered);
+resuseptible = min(resuseptible, r);
 
 % Update state
 s_n = s - infected + resuseptible;
