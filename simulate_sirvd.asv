@@ -9,13 +9,10 @@ function [S, I, R, V, D, W] = simulate_sirvd(s_0, i_0, r_0, v_0, d_0, beta, gamm
 %   i_0 = initial number of infected individuals
 %   r_0 = initial number of recovered individuals
 %   v_0 = initial number of vaccinated individuals
-%   d_0 = initial number of dead individuals
+%   
 %
 %   beta = infection rate parameter
-%   gamma = exiting infection rate parameter
-%   alpha = reinfection rate parameter
-%   sigma = vaccination rate parameter
-%   p = percent dying parameter
+%   gamma = recovery rate paramter
 %
 %   num_steps = number of simulation steps to simulate
 %
@@ -23,21 +20,17 @@ function [S, I, R, V, D, W] = simulate_sirvd(s_0, i_0, r_0, v_0, d_0, beta, gamm
 %   S = simulation history of susceptible individuals; vector
 %   I = simulation history of infected individuals; vector
 %   R = simulation history of recovered individuals; vector
-%   V = simulation history of vaccinated individuals; vector
-%   D = simulation history of deceased indificuals; vector
 %   W = simulation week; vector
 
 % Setup
 S = zeros(1, num_steps); S(1) = s_0;
 I = zeros(1, num_steps); I(1) = i_0;
 R = zeros(1, num_steps); R(1) = r_0;
-V = zeros(1, num_steps); V(1) = v_0;
-D = zeros(1, num_steps); D(1) = d_0;
 W = 1 : num_steps;
 
 % Run simulation
 for step = 1 : (num_steps - 1)
-    [S(step+1), I(step+1), R(step+1), V(step+1), D(step+1)] = action_sirvd(S(step), I(step), R(step), V(step), D(step), beta, gamma, alpha, sigma, p);
+    [S(step+1), I(step+1), R(step+1)] = action_sirs(S(step), I(step), R(step), beta, gamma, alpha);
 end
 
 end
