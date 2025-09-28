@@ -35,8 +35,6 @@ infected = min(infected, s);
 recovered = min(recovered, i);
 resuseptible = min(resuseptible, r);
 
-% TODO: check vaccinated and dead
-
 % Update state
 s_n = s - infected + resuseptible - vaccinated;
 i_n = i + infected - recovered - dead;
